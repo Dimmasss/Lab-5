@@ -36,7 +36,7 @@ aside {
     align-items: center;
     color: white;
     height: 100%;
-    background-color: #DE8B3A;
+    background-color: #de832f;
 }
 #logotype-kma {
     font-size: 1.2em;
@@ -86,7 +86,7 @@ aside {
      padding: 7px 13px;
      color: white;
      font-weight: bold;
-     background-color: #E3A23C;
+     background-color: #de832f;
      border-radius: 3px;
      outline:none;
      border: none;
@@ -167,9 +167,13 @@ aside {
 }
 .remarks {
     position: absolute;
-    left: calc(100% - 45px);
+    /*left: calc(100% - 75px);*/
     top: -10px;
-       color: white;
+    width: 110%;
+    left: -5%;
+    display: flex;
+    justify-content: space-between;
+    color: white;
     font-weight: bold;
 }
 .remarks span {
@@ -183,7 +187,9 @@ aside {
   margin-bottom: 3px;
 }
 .remark-popular {
-  background-color: #72B763;
+    /*position: absolute;*/
+    background-color: #72B763;
+    /*left: calc(100% - 70px) !important;*/
 }
 .pizza img{
     grid-column-start: 1;
