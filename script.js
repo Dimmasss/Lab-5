@@ -206,7 +206,7 @@ pizzaTypes.forEach((type) => {
 
 document.getElementById("clear-order").addEventListener("click", function() {
     cartOfpizzas = [];
-    renderShoppingCart();
+    updateCart();
 });
 
 function joinContentOfThePizza(pizza) {
@@ -223,8 +223,8 @@ function generatePizzaFromDescription(pizza) {
     let html = `
     <div class="pizza">
       <div class="remarks">
-        ${pizza.is_new ? `<span class="remark-new">Нова</span>` : ''}
         ${pizza.is_popular ? `<span class="remark-popular">Популярна</span>` : ''}
+        ${pizza.is_new ? `<span class="remark-new">Нова</span>` : ''}
       </div>
       <img src="${pizza.icon}">
       <h2>${pizza.title}</h2>
@@ -292,10 +292,10 @@ function generatePizzaForShoppingCart(orderPizza) {
       </div>
       <div class="order-buttons">
         <span class="order-price">${price * amount}</span>
-        <button class="minus-button" onclick="decrementProduct('${name}')">-</button>
+        <button class="minus-button" onclick="removeOnePizzaFromCards('${name}')">-</button>
         <span class="order-amount">${amount}</span>
-        <button class="plus-button" onclick="incrementProduct('${name}')">+</button>
-        <button class="cross-button" onclick="deleteProduct('${name}')">x</button>
+        <button class="plus-button" onclick="addPizzaToTheCart('${name}')">+</button>
+        <button class="cross-button" onclick="removePizza('${name}')">x</button>
       </div>
       <img src="${img}">
     </div>
@@ -333,16 +333,16 @@ function placeOrder(pizzaName, size, price, radius, weight, img) {
     for (let order of cartOfpizzas) {
         if (order.name === pizzaName && order.size === size) {
             order.amount++;
-            renderShoppingCart();
+            updateCart();
             return;
         }
     }
 
     cartOfpizzas.push(new Order(pizzaName, size, price, radius, weight, img));
-    renderShoppingCart();
+    updateCart();
 }
 
-function renderShoppingCart() {
+function updateCart() {
     let html = "";
     let sum = 0;
 
@@ -362,39 +362,39 @@ function renderShoppingCart() {
     localStorage.setItem("cartOfpizzas", JSON.stringify(cartOfpizzas));
 }
 
-function incrementProduct(name) {
+function addPizzaToTheCart(name) {
     for (let order of cartOfpizzas) {
         if (order.name === name) {
             order.amount++;
-            renderShoppingCart();
+            updateCart();
             return;
         }
     }
 }
 
-function decrementProduct(name) {
+function removeOnePizzaFromCards(name) {
     for (let order of cartOfpizzas) {
         if (order.name === name) {
             if (order.amount === 1) {
-                deleteProduct(name);
+                removePizza(name);
                 return;
             }
             order.amount--;
-            renderShoppingCart();
+            updateCart();
             return;
         }
     }
 }
 
-function deleteProduct(name) {
+function removePizza(name) {
     for (let i = 0; i < cartOfpizzas.length; ++i) {
         if (cartOfpizzas[i].name === name) {
             cartOfpizzas.splice(i, 1);
-            renderShoppingCart();
+            updateCart();
             return;
         }
     }
 }
 
 renderPizzas();
-renderShoppingCart();
+updateCart();

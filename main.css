@@ -1,19 +1,19 @@
 html {
-    min-width: 666px;
+    min-width: 750px;
 }
 body {
-    font-family: "Calibri", sans-serif;
+    font-family: "Timew New Roman", serif;
     display: flex;
     margin: 0;
-    /* overflow-x: hidden; */
 }
 main {
-    width: calc(100% - 350px);
-    background-color: #FFFFF5;
+    width: calc(100% - 400px);
+    background-color: #fdfdee;
 }
 aside {
-    width: 350px;
+    width: 400px;
 }
+
 #upper-panel {
     display: flex;
     justify-content: space-around;
@@ -21,7 +21,7 @@ aside {
     position: fixed;
     top: 0;
     left: 0;
-    width: calc(100% - 350px);
+    width: calc(100% - 400px);
     background-color: #333331;
     height: 92px;
     z-index: 1;
@@ -68,12 +68,12 @@ aside {
     color: #A1A1A1;
 }
 #phone {
-    font-size: 1.3em;
-    margin-right: 20px;
+    font-size: 1.1em;
+    margin-right: 15px;
 }
 #free-delivery {
-    font-size: 1.2em;
-    margin-left: 20px;
+    font-size: 1.05em;
+    margin-left: 15px;
 }
 #button-wrapper {
     /*justify-self: right;*/
@@ -184,7 +184,7 @@ aside {
 }
 .remark-new {
   background-color: #CB5B51;
-  margin-bottom: 3px;
+  /*margin-bottom: 3px;*/
 }
 .remark-popular {
     /*position: absolute;*/
@@ -395,7 +395,7 @@ footer {
   border-radius: 5px;
   cursor: pointer;
 }
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 750px) {
   body {
     transform: translateX(0);
   }
@@ -408,10 +408,8 @@ footer {
     display: block;
   }
    }
-@media screen and (max-width: 1074px) {
-    /*#pizza-list {*/
-    /*    width: 725px;*/
-    /*}*/
+@media screen and (max-width: 1125px) {
+
     .pizza {
         width: auto;
         margin-left: auto;
@@ -422,7 +420,7 @@ footer {
         display: none;
     }
 }
-@media screen and (min-width: 1075px) {
+@media screen and (min-width: 1125px) {
     #pizza-list {
         width: 725px;
     }
